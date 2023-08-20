@@ -15,9 +15,12 @@
             return choices[Math.floor(Math.random()*3)];
         }
 
+        let playerPoints=0;
+        let computerPoints=0;
+
         function playRound(playerSelection,computerSelection)
         {
-            let playerPoints=0,computerPoints=0
+          
             if(playerSelection=="rock"&&computerSelection=="scissors")
             {
                 playerPoints++;
@@ -54,13 +57,10 @@
                 return "It's a tie!!!"
             }
 
-            return playerPoints;
-            return computerPoints;
+            //return {playerPoints,computerPoints};
         }
                 
-            
-        
-
+        //To play 5 rounds of the game and determine the winner
         function game()
         {
             for(let i=0;i<5;i++)
@@ -69,13 +69,14 @@
                 let computerSelection=getComputerChoice();
                 console.log(playRound(playerSelection,computerSelection));
             }
+            console.log(playerPoints);
+            console.log(computerPoints);
 
-          // const winner=playerPoints>computerPoints ? "You win":"The machine wins"
-           console.log(winner);
+            playerPoints>computerPoints?console.log("You win"):console.log("Computer wins");
         }
-       
-
+        
         game();
+    
        
     </script>
 </body>
