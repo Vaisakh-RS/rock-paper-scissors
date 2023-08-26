@@ -50,18 +50,23 @@ function playRound(playerSelection,computerSelection)
         return "It's a tie!!!"
     }
 
-    //return {playerPoints,computerPoints};
 }
         
-
+//Gets the player and the computer choices
+//Plays round and append the results to the divs
 function getChoices()
 {
     let playerSelection=this.innerText.toLowerCase();
     let computerSelection=getComputerChoice();
-    console.log(playRound(playerSelection,computerSelection));
 
-    console.log(playerPoints);
-    console.log(computerPoints);
+    result=playRound(playerSelection,computerSelection);
+
+    let resultDiv=document.getElementById("results");
+    let scoreDiv=document.getElementById("score");
+
+    resultDiv.textContent=result;
+
+    scoreDiv.textContent=`${playerPoints}-${computerPoints}`;
 
     //playerPoints>computerPoints?console.log("You win"):console.log("Computer wins");
 
