@@ -1,11 +1,13 @@
 function getComputerChoice(){
     choices=["rock","paper","scissors"];
-    //min=0(included) and max=3(excluded)
     //Math.random()*max
     return choices[Math.floor(Math.random()*3)];
 }
 
-//test comment
+const playerChoiceClasses=document.getElementsByClassName("btn");
+const playerChoice=Array.from(playerChoiceClasses);
+
+
 let playerPoints=0;
 let computerPoints=0;
 
@@ -51,19 +53,29 @@ function playRound(playerSelection,computerSelection)
     //return {playerPoints,computerPoints};
 }
         
-//To play 5 rounds of the game and determine the winner
-function game()
-{
-    
 
-    let playerSelection=prompt("Enter your choice").toLowerCase();
+function getChoices()
+{
+    let playerSelection=this.innerText.toLowerCase();
     let computerSelection=getComputerChoice();
     console.log(playRound(playerSelection,computerSelection));
 
     console.log(playerPoints);
     console.log(computerPoints);
 
-    playerPoints>computerPoints?console.log("You win"):console.log("Computer wins");
+    //playerPoints>computerPoints?console.log("You win"):console.log("Computer wins");
+
+
+}
+
+
+function game()
+{
+
+    playerChoice.forEach(choice => {
+        choice.addEventListener("click",getChoices);
+    });
+    
 }
 
 game();
