@@ -68,19 +68,25 @@ function getChoices()
 
     scoreDiv.textContent=`${playerPoints}-${computerPoints}`;
 
-    //playerPoints>computerPoints?console.log("You win"):console.log("Computer wins");
+    if(playerPoints==5||computerPoints==5)
+    {
+        if(playerPoints==5)
+            resultDiv.textContent="Player wins. Starting a new game ...";
+        else
+            resultDiv.textContent="Computer wins.  Starting a new game ...";
 
-
+        playerPoints=0;
+        computerPoints=0;
+    }     
 }
-
 
 function game()
 {
-
     playerChoice.forEach(choice => {
         choice.addEventListener("click",getChoices);
-    });
-    
+    }); 
 }
 
 game();
+
+
