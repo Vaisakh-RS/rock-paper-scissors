@@ -17,33 +17,33 @@ function playRound(playerSelection,computerSelection)
     if(playerSelection=="rock"&&computerSelection=="scissors")
     {
         playerPoints++;
-        return "You win!Rock beats Scissors";
+        return "You win! Rock beats Scissors";
     }
     else if(playerSelection=="scissors"&&computerSelection=="paper")
     {
         playerPoints++;
-        return "You win!Scissors beats paper";
+        return "You win! Scissors beats paper";
     }
     else if(playerSelection=="paper"&&computerSelection=="rock")
     {
         playerPoints++;
-        return "You win!Paper beats rock";
+        return "You win! Paper beats rock";
     }
     
     else if(playerSelection=="scissors"&&computerSelection=="rock")
     {
         computerPoints++;
-        return "You lose!Rock beats scissors";
+        return "You lose! Rock beats scissors";
     }
     else if(playerSelection=="paper"&&computerSelection=="scissors")
     {
         computerPoints++;
-        return "You lose!Scissors beats paper";
+        return "You lose! Scissors beats paper";
     }
     else if(playerSelection=="rock"&&computerSelection=="paper")
     {
         computerPoints++;
-        return "You lose!Paper beats rock";
+        return "You lose! Paper beats rock";
     }
     else
     {
@@ -56,13 +56,14 @@ function playRound(playerSelection,computerSelection)
 //Plays round and append the results to the divs
 function getChoices()
 {
+    document.body.style.backgroundColor = "white";
     let playerSelection=this.innerText.toLowerCase();
     let computerSelection=getComputerChoice();
 
     result=playRound(playerSelection,computerSelection);
 
     let resultDiv=document.getElementById("results");
-    let scoreDiv=document.getElementById("score");
+    let scoreDiv=document.getElementById("scores");
 
     resultDiv.textContent=result;
 
@@ -71,12 +72,22 @@ function getChoices()
     if(playerPoints==5||computerPoints==5)
     {
         if(playerPoints==5)
-            resultDiv.textContent="Player wins. Starting a new game ...";
+        {
+            resultDiv.textContent="You win. Starting a new game ...Go again";
+            document.body.style.backgroundColor = "aqua";
+            
+        }
+            
         else
-            resultDiv.textContent="Computer wins.  Starting a new game ...";
-
+        {
+            resultDiv.textContent="AI wins.  Starting a new game ...Go again";
+            document.body.style.backgroundColor = "red";
+            
+        }
         playerPoints=0;
         computerPoints=0;
+        
+        //scoreDiv.textContent=`0-0`;
     }     
 }
 
