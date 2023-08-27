@@ -68,3 +68,27 @@ h3{
   }
 }
 
+h4{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#score{
+    text-align: center;
+    margin: 100px;
+    font-size: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#scores{
+    font-size: 70px;
+    font-family: 'Sedgwick Ave Display', cursive;
+}
+
+#results{
+    background-color: aquamarine;
+    margin-top: 30px;
+    font-family:'Prompt', sans-serif; 
+    font-size: 30px;
+}
